@@ -21,4 +21,11 @@ public class PlayerControl : MonoBehaviour {
         Vector2 moveForce = new Vector2(moveHorizontal, moveVertical);
         rg2d.AddForce(moveForce*speed);
     }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("PickUp"))
+        {
+            other.gameObject.SetActive(false);
+        }
+    }
 }
